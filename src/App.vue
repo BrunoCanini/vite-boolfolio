@@ -1,9 +1,24 @@
-<script setup>
-// import HelloWorld from './components/HelloWorld.vue'
+<script>
+import ProjectCard from './components/ProjectCard.vue'
+
+export default {
+  name: "AppVue",
+  data() {
+    return {
+
+    }
+  },
+  components: {
+    ProjectCard
+  }
+}
 </script>
 
 <template>
-<h1>prova</h1>
+  <h1>Projects:</h1>
+
+  <ProjectCard />
+
 </template>
 
 <style scoped>
