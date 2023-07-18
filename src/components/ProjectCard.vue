@@ -18,7 +18,7 @@ import axios from 'axios';
             getProjectsData(){
 
             },
-            
+
             getProjects(){
                 this.loading = true;
 
@@ -130,7 +130,7 @@ import axios from 'axios';
             <h2>{{ project.title }}</h2>
             <p>CATEGORIA: {{ project.category ? project.category.name : "Nessuna categoria" }}</p>
             <p>TECNOLOGIE:
-                <span v-if="project.technologys.length" v-for="tech in project.technologys" > {{ tech }} </span>
+                <span v-if="project.technologys.length" v-for="tech in project.technologys" > {{ tech.name }} </span>
                 <span v-else>Nessuna</span>
             </p>
             <p>DESCRIZIONE:{{ project.content }}</p>
@@ -138,9 +138,7 @@ import axios from 'axios';
         </div>
 
         <a @click="previusPage()">Prev</a>
-
         <a @click="page(pageNumber)" v-for="pageNumber in projectTotalPages">bottone{{ pageNumber }} </a>
-
         <a @click=" nextPage()">Next</a>
 
     </main>
