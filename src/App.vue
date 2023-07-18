@@ -15,9 +15,12 @@ export default {
 </script>
 
 <template>
-  <h1>Projects:</h1>
 
-  <ProjectCard />
+  <header>
+    <h1>menu</h1>
+  </header>
+
+  <router-view></router-view>
 
 </template>
 
