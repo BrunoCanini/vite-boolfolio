@@ -1,5 +1,6 @@
 <script>
-import ProjectCard from './components/ProjectCard.vue'
+import ProjectCard from './components/ProjectCard.vue';
+import Navbar from './components/Navbar.vue';
 
 export default {
   name: "AppVue",
@@ -9,15 +10,16 @@ export default {
     }
   },
   components: {
-    ProjectCard
-  }
+    ProjectCard,
+    Navbar
+}
 }
 </script>
 
 <template>
 
   <header>
-    <h1>menu</h1>
+    <Navbar />
   </header>
 
   <router-view></router-view>

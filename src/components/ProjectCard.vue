@@ -124,22 +124,27 @@ import axios from 'axios';
     <main>
         <h3 v-if="loading" >Caricamento in corso</h3>
         <h3 v-if="loadingError" >{{loadingError}}</h3>
-        <h4>Page:{{ projectPage }} di {{ projectTotalPages }}</h4>
+        <span>Page:{{ projectPage }} di {{ projectTotalPages }}</span>
 
-        <div v-for="project in projects">
-            <h2>{{ project.title }}</h2>
-            <p>CATEGORIA: {{ project.category ? project.category.name : "Nessuna categoria" }}</p>
-            <p>TECNOLOGIE:
-                <span v-if="project.technologys.length" v-for="tech in project.technologys" > {{ tech.name }} </span>
-                <span v-else>Nessuna</span>
-            </p>
-            <p>DESCRIZIONE:{{ project.content }}</p>
-
+        <div class="d-flex m-4">
+            <div v-for="project in projects" class="card m-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ project.title }}</h5>
+                    <p class="card-text">CATEGORIA: {{ project.category ? project.category.name : "Nessuna categoria" }}</p>
+                    <p class="card-text">TECNOLOGIE:
+                        <span v-if="project.technologys.length" v-for="tech in project.technologys" class="card-text" > {{ tech.name }} </span>
+                        <span v-else class="card-text">Nessuna</span>
+                    </p>
+                    <p class="card-text">DESCRIZIONE:{{ project.content }}</p>
+                </div>
+            </div> 
         </div>
 
-        <a @click="previusPage()">Prev</a>
-        <a @click="page(pageNumber)" v-for="pageNumber in projectTotalPages">bottone{{ pageNumber }} </a>
-        <a @click=" nextPage()">Next</a>
+        <div class="text-center">
+            <a @click="previusPage()" class="btn btn-primary m-2">Prev</a>
+            <a @click="page(pageNumber)" v-for="pageNumber in projectTotalPages" class="btn btn-primary m-2">bottone{{ pageNumber }} </a>
+            <a @click=" nextPage()" class="btn btn-primary m-2">Next</a> 
+        </div>
 
     </main>
 
