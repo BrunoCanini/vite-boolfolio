@@ -15,7 +15,7 @@ import ProjectCard from '../components/ProjectCard.vue';
 <template>
 
     <section>
-        <h1>Projects:</h1>
+        <h1 class="mx-4">Projects:</h1>
         <ProjectCard />
     </section>
 

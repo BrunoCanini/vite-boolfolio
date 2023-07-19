@@ -12,6 +12,9 @@ import axios from 'axios';
                 projects: [],
                 projectPage: 0,
                 projectTotalPages: 0,
+                // navLinks: [
+                //     {route: "single-project", label: "single-project", params: {id:""}},
+                // ]
             }
         },
         methods: {
@@ -123,9 +126,9 @@ import axios from 'axios';
 <template>
 
     <main>
-        <h3 v-if="loading" >Caricamento in corso</h3>
-        <h3 v-if="loadingError" >{{loadingError}}</h3>
-        <span>Page:{{ projectPage }} di {{ projectTotalPages }}</span>
+        <h3 class="mx-4" v-if="loading" >Caricamento in corso</h3>
+        <h3 class="mx-4" v-if="loadingError" >{{loadingError}}</h3>
+        <span class="mx-4">Page:{{ projectPage }} di {{ projectTotalPages }}</span>
 
         <div class="d-flex m-4">
             <div v-for="project in projects" class="card m-2" style="width: 18rem;">
@@ -137,11 +140,12 @@ import axios from 'axios';
                         <span v-else class="card-text">Nessuna</span>
                     </p>
                     <p class="card-text">DESCRIZIONE:{{ project.content }}</p>
+                    <!-- <router-link :to="{name: project.route, params: project.id}" class="nav-link active" aria-current="page">{{link.label}}</router-link> -->
                 </div>
             </div> 
         </div>
 
-        <div class="text-center">
+        <div class="mx-4">
             <a @click="previusPage()" class="btn btn-primary m-2">Prev</a>
             <a @click="page(pageNumber)" v-for="pageNumber in projectTotalPages" class="btn btn-primary m-2">bottone{{ pageNumber }} </a>
             <a @click=" nextPage()" class="btn btn-primary m-2">Next</a> 
