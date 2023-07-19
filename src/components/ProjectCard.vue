@@ -30,6 +30,7 @@ import axios from 'axios';
                 }).catch(err=> {
                     this.loading = false;
                     this.loadingError = "Errore caricamento dati";
+                    this.$router.push({ name: "error"});
                 })
             },
 

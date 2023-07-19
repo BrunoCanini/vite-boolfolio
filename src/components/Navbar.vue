@@ -4,7 +4,11 @@
         name: "Navbar",
         data() {
             return {
-
+                navLinks: [
+                    {route: "home", label: "Home"},
+                    {route: "about", label: "About"},
+                    {route: "projects", label: "Projects", params: {code:"-my-projects"} },
+                ]
             };
     },
 }
@@ -15,17 +19,10 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">Home</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav" v-for="link in navLinks">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/projects">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about-us">About</a>
+                        <router-link :to="{name: link.route, params: link.params}" class="nav-link active" aria-current="page">{{link.label}}</router-link>
                     </li>
                 </ul>
             </div>
