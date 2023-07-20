@@ -140,6 +140,7 @@ import axios from 'axios';
                         <span v-else class="card-text">Nessuna</span>
                     </p>
                     <p class="card-text">DESCRIZIONE:{{ project.content }}</p>
+                    <a :href= "'/projects/'+ project.id">vai</a>
                     <!-- <router-link :to="{name: project.route, params: project.id}" class="nav-link active" aria-current="page">{{link.label}}</router-link> -->
                 </div>
             </div> 
